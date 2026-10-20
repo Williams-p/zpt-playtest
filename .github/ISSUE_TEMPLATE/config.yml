@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to install the latest build
+    url: https://github.com/Williams-p/zpt-playtest#install-the-game
+    about: Install / update the playtest build on your phone, and what to do if it won't install.

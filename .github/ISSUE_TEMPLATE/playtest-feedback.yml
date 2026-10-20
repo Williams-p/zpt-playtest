@@ -1,0 +1,71 @@
+# Tester-facing GitHub issue FORM (renders as a phone-friendly form at
+# .../issues/new?template=playtest-feedback.yml). Mirrors the voice + questions of
+# docs/playtest/tester-feedback-sheet-2026-08-29.md; every field is optional except the
+# one thing we cannot recover afterwards: WHAT HAPPENED. Labels land it in the
+# `playtest` queue for triage.
+name: Playtest report
+description: Something confused you, felt unfair, felt great, or broke. One line is plenty.
+title: "[playtest] "
+labels: [playtest]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Half-finished thoughts are fine.** If the game didn't explain something, that's our bug, not your mistake.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of thing is this?
+      options:
+        - Confusing — I didn't understand what was happening or what to do
+        - Unfair / cheap — it felt like the game cheated
+        - Great moment — this felt good, do more of it
+        - Bug — something broke, froze, or looked wrong
+        - Idea / other
+    validations:
+      required: false
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: As close to what you actually saw as you can. What did you expect instead?
+      placeholder: "Fight 3, second turn. I moved my bot off the red tile and it still got hit…"
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Where were you?
+      description: Which mission, which fight (1–5), which turn — whatever you remember.
+      placeholder: "Skyport mission, fight 2, turn 4"
+
+  - type: input
+    id: build
+    attributes:
+      label: Which build?
+      description: "Phone Settings → Apps → ZPT Spike → Version. Looks like `0.1.0-2a45657bb`. Or just the date you installed."
+      placeholder: "0.1.0-2a45657bb"
+
+  - type: input
+    id: device
+    attributes:
+      label: Phone
+      placeholder: "Pixel 7 / Galaxy S23 / …"
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot or screen recording (optional)
+      description: Drag or paste an image here. A screenshot of the board when it went wrong is worth a paragraph.
+
+  - type: dropdown
+    id: again
+    attributes:
+      label: Would you play another mission right now?
+      options:
+        - "Yes"
+        - "Maybe"
+        - "No"
